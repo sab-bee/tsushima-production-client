@@ -16,7 +16,7 @@ module.exports = {
     },
   },
   daisyui: {
-    themes: false,
+    themes: ['dark'],
     // false means it won't apply daisy ui theme
   },
   plugins: [require('daisyui')],

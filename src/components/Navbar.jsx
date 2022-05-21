@@ -4,6 +4,7 @@ import { useAuthState } from 'react-firebase-hooks/auth'
 import { Link, useLocation, useNavigate } from 'react-router-dom'
 import { auth } from '../firebase/firebase.init'
 import ActiveLink from './ActiveLink'
+import { FiLogOut } from 'react-icons/fi'
 
 const menus = [
   {
@@ -32,9 +33,6 @@ const Navbar = () => {
   const [user] = useAuthState(auth)
   const navigate = useNavigate()
   const location = useLocation()
-
-  console.log(user)
-
   return (
     location.pathname?.includes('account') || (
       <div className='navbar bg-base-100 sticky top-0 z-10 px-32 h-20'>
@@ -85,16 +83,16 @@ const Navbar = () => {
               Login
             </button>
           ) : (
-            <div className='dropdown dropdown-end'>
+            <div className='flex items-center gap-x-4'>
               <h2>{user?.displayName}</h2>
               <button
-                className='cta cta-primary'
+                className='font-xl'
                 onClick={() => {
                   signOut(auth)
                   navigate('account')
                 }}
               >
-                Logout
+                <FiLogOut />
               </button>
             </div>
           )}
