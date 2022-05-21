@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { useForm } from 'react-hook-form'
-import { useLocation, useNavigate } from 'react-router-dom'
+import { Link, useLocation, useNavigate } from 'react-router-dom'
+import { useFirebase } from '../../hooks/useFirebase'
 
 const Register = () => {
   const {
@@ -15,6 +16,7 @@ const Register = () => {
   const location = useLocation()
 
   const [isPassMatch, setIsPassMatch] = useState(true)
+  const { createUser } = useFirebase()
 
   useEffect(() => {
     const subscription = watch((data) => {
@@ -30,9 +32,9 @@ const Register = () => {
   }, [watch])
 
   const onSubmit = (data) => {
-    // createUser.handleCreateUser(data)
     data = capitalizeName(data)
-    console.log(data)
+    createUser.handleCreateUser(data)
+    // console.log(data)
     reset()
   }
 
@@ -144,7 +146,13 @@ const Register = () => {
           )}
         </div>
         <div className='input-wraper mt-10'>
-          <button className='cta cta-primary'>register</button>
+          <button
+            className={`${
+              createUser.cLoading && 'btn loading border-0'
+            } cta cta-primary`}
+          >
+            register
+          </button>
         </div>
         <div>
           already have account?{' '}

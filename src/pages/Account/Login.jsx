@@ -2,6 +2,7 @@ import React from 'react'
 import { useForm } from 'react-hook-form'
 import { useLocation, useNavigate } from 'react-router-dom'
 import google from '../../assets/icon/google.svg'
+import { useFirebase } from '../../hooks/useFirebase'
 
 const Login = () => {
   const {
@@ -14,9 +15,10 @@ const Login = () => {
   const navigate = useNavigate()
   const location = useLocation()
 
+  const { googleSignIn, userLogin } = useFirebase()
+
   const onSubmit = (data) => {
-    // createUser.handleCreateUser(data)
-    console.log(data)
+    userLogin.handleUserLogin(data)
     reset()
   }
 
@@ -71,12 +73,24 @@ const Login = () => {
         <div className='input-wraper mt-10'>
           <button className='cta cta-primary'>login</button>
         </div>
-        <div>
-          Don't have account? <span className='navigator'>Register</span>
+        <div className=''>
+          Don't have account?{' '}
+          <span
+            onClick={() =>
+              navigate('/account/register', {
+                state: location.state,
+                replace: true,
+              })
+            }
+            className='navigator'
+          >
+            Register
+          </span>
         </div>
         <div className='divider font-medium'>Or continue with</div>
         <button
           type='button'
+          onClick={() => googleSignIn.handleGoogleSignIn()}
           className='cta cta-glass flex items-center justify-center gap-x-2'
         >
           <img className='w-6' src={google} alt='google' />

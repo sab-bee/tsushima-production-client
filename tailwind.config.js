@@ -15,5 +15,9 @@ module.exports = {
       }
     },
   },
-  plugins: [],
+  daisyui: {
+    themes: false,
+    // false means it won't apply daisy ui theme
+  },
+  plugins: [require('daisyui')],
 }
