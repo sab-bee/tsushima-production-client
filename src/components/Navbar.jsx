@@ -79,8 +79,8 @@ const Navbar = () => {
         {/* side menu */}
         <div
           className={`${
-            expand ? 'left-0' : '-left-full md:-left-72'
-          } w-full md:w-72 h-screen bg-secondary text-white fixed top-0 transition-all ease-in-out duration-700`}
+            expand ? 'left-0' : '-left-full md:-left-80'
+          } w-full md:w-80 h-screen bg-secondary text-white fixed top-0 transition-all ease-in-out duration-700`}
         >
           <button
             className='ml-auto block mr-5 mt-5'

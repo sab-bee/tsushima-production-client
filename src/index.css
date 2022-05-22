@@ -68,13 +68,17 @@ body {
   .cta-glass {
     @apply hover:bg-gray-100 border-2;
   }
+
+  .cta-material {
+    @apply bg-purple-200 text-purple-700;
+  }
   .navigator {
     @apply text-primary font-medium cursor-pointer hover:text-inherit;
   }
 
   /* navbar...................................... */
   .nav-container {
-    @apply z-10 sticky top-0 bg-accent border-b;
+    @apply z-20 sticky top-0 bg-accent border-b;
   }
 
   .navbar {

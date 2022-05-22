@@ -29,7 +29,7 @@ function App() {
         <Route path='/purchase/:_id' element={<ProtectedRoute><Purchase /></ProtectedRoute>}>
           <Route index element={<Product />}></Route>
         </Route>
-        <Route path='/dashboard' element={<DashBoard/>}>
+        <Route path='/dashboard' element={<ProtectedRoute><DashBoard/></ProtectedRoute>}>
           <Route index element={<MyOrders/>}></Route>
           <Route path='addReview' element={<AddReview/>}></Route>
           <Route path='myProfile' element={<MyProfile/>}></Route>
