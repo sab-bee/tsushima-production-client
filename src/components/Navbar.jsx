@@ -38,9 +38,9 @@ const Navbar = () => {
 
   return (
     location.pathname?.includes('account') || (
-      <>
-        <div className='border-b sticky top-0'>
-          <div className='grid grid-cols-2 md:grid-cols-5 w-4/5 mx-auto h-24 items-center'>
+      
+        <div className='nav-container'>
+          <div className='navbar'>
             <div>
               <button onClick={() => setExpand(true)}>
                 <HiMenuAlt1 className='text-xl' />
@@ -75,7 +75,7 @@ const Navbar = () => {
               )}
             </div>
           </div>
-        </div>
+      
 
         {/* side menu */}
         <div
@@ -97,7 +97,7 @@ const Navbar = () => {
               >
                 <Link
                   to={menu.url}
-                  className=' relative after:content-[""] after:h-[2px] after:w-0 after:bg-white after:absolute after:bottom-0 after:left-0 hover:after:w-full after:transition-all after:duration-300 ease-in-out'
+                  className=' relative after:content-[""] after:h-[2px] after:w-0 after:bg-white after:absolute after:bottom-0 after:left-0 hover:after:w-full after:transition-all after:duration-200 ease-in-out'
                   onClick={() => setExpand(false)}
                 >
                   {menu.name}
@@ -106,7 +106,7 @@ const Navbar = () => {
             ))}
           </div>
         </div>
-      </>
+      </div>
     )
   )
 }

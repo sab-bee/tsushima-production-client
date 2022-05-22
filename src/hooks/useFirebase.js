@@ -1,7 +1,15 @@
+import axios from 'axios'
 import { useEffect } from 'react'
-import { useSignInWithGoogle, useCreateUserWithEmailAndPassword, useSignInWithEmailAndPassword, useUpdateProfile } from 'react-firebase-hooks/auth'
+import {
+  useSignInWithGoogle,
+  useCreateUserWithEmailAndPassword,
+  useSignInWithEmailAndPassword,
+  useUpdateProfile,
+  useAuthState,
+} from 'react-firebase-hooks/auth'
 import toast from 'react-hot-toast'
 import { useLocation, useNavigate } from 'react-router-dom'
+import { axiosPublic } from '../api/axiosPublic'
 import { auth } from '../firebase/firebase.init'
 
 export const useFirebase = () => {
@@ -14,24 +22,32 @@ export const useFirebase = () => {
 
   const navigate = useNavigate()
   const location = useLocation()
+  const [user] = useAuthState(auth)
 
   useEffect(() => {
     if (gError || cError || eError || updateError) {
-      let message = gError?.message || cError?.message || eError?.message || updateError?.message
+      let message =
+        gError?.message ||
+        cError?.message ||
+        eError?.message ||
+        updateError?.message
       message = message.split(' ')
       toast.error(message.at(-1).replace(/auth|[)-/(]/g, ' '))
     }
-
   }, [gError, cError, eError, updateError])
-
 
   const from = location.state?.from?.pathname || '/'
   useEffect(() => {
-    if (gUser || cUser || eUser) {
+    if (user) {
       toast.success('logged in')
       navigate(from, { replace: true })
+      const email = user?.email
+      axiosPublic(`/account/${email}`).then((res) => {
+        const token = res.data?.token
+        localStorage.setItem('token', token)
+      })
     }
-  }, [gUser, cUser, eUser, navigate, from])
+  }, [navigate, from, user])
 
   const handleGoogleSignIn = () => {
     signInWithGoogle()
@@ -40,7 +56,6 @@ export const useFirebase = () => {
   const handleCreateUser = async ({ email, password, name }) => {
     await createUserWithEmailAndPassword(email, password)
     await updateProfile({ displayName: name })
-
   }
 
   const handleUserLogin = ({ email, password }) => {
@@ -50,6 +65,6 @@ export const useFirebase = () => {
   return {
     googleSignIn: { handleGoogleSignIn, gLoading },
     createUser: { handleCreateUser, cLoading },
-    userLogin: { handleUserLogin, eLoading }
+    userLogin: { handleUserLogin, eLoading },
   }
 }

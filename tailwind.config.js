@@ -13,6 +13,7 @@ module.exports = {
         'primary-800': '#2034CA',
         warningBlur: '#FEFDEB',
         error: '#E53935',
+        accent: '#f6f9fc',
       }
     },
   },
