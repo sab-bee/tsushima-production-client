@@ -1,16 +1,11 @@
 import React from 'react'
 import { useQuery } from 'react-query'
 import { axiosPublic } from '../../api/axiosPublic'
+import { useParts } from '../../hooks/useParts'
 import SinglePart from './SinglePart'
 
 const Parts = () => {
-  const {
-    data: parts,
-    isLoading,
-    isError,
-    refetch,
-  } = useQuery('parts', () => axiosPublic('/parts'))
-
+  const { parts, refetch, isLoading } = useParts()
   if (isLoading) return
 
   return (

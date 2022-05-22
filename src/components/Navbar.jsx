@@ -21,8 +21,8 @@ const menus = [
     url: '/account',
   },
   {
-    name: 'Get tickets',
-    url: '/tickets',
+    name: 'Blog',
+    url: '/blog',
   },
   {
     name: 'purchase',
@@ -32,7 +32,6 @@ const menus = [
 
 const Navbar = () => {
   const [user] = useAuthState(auth)
-  const navigate = useNavigate()
   const location = useLocation()
   const [expand, setExpand] = useState(false)
 
@@ -46,18 +45,18 @@ const Navbar = () => {
                 <HiMenuAlt1 className='text-xl' />
               </button>
             </div>
-            <div className='col-span-3 justify-around hidden md:flex'>
+            <div className='menu-items'>
               {menus.map((menu, index) => (
                 <Link
                   key={index}
                   to={menu.url}
-                  className='relative after:content-[""] after:h-[3px] after:w-0 after:bg-secondary after:absolute after:bottom-0 after:left-0 hover:after:w-full after:transition-all after:duration-300 ease-in-out font-medium'
+                  className='menu-item'
                 >
                   {menu.name}
                 </Link>
               ))}
             </div>
-            <div className='justify-self-end '>
+            <div className='justify-self-end gap-x-2'>
               <h2 className='text-secondary font-semibold'>
                 {user?.displayName}
               </h2>

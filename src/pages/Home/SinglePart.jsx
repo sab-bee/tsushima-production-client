@@ -1,4 +1,5 @@
 import React from 'react'
+import { useNavigate } from 'react-router-dom'
 
 const SinglePart = ({ part }) => {
   const {
@@ -8,19 +9,29 @@ const SinglePart = ({ part }) => {
     minimumQuantity,
     availableQuantity,
     price,
+    _id,
   } = part
+
+  const navigate = useNavigate()
+
   return (
-    <div className='part-body'>
-      <div>
+    <div className='part'>
+      <div className='part-body'>
         <img src={image} alt='' />
         <div className='part-info'>
           <h2 className='part-title'>{name}</h2>
-          <p className='part-detail'>{description}</p>
-          mini
+          <p className='part-detail'>{description.slice(0, 200) + '...'}</p>
           <p className='part-price'>${price}</p>
         </div>
       </div>
-      <button className='cta-secondary mt-auto'>place order</button>
+      <div className='mt-auto text-center pb-5'>
+        <button
+          onClick={() => navigate(`/purchase/${_id}`)}
+          className='cta cta-secondary w-fit rounded-full py-3 px-5'
+        >
+          place order
+        </button>
+      </div>
     </div>
   )
 }
