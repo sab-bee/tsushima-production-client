@@ -1,0 +1,50 @@
+[
+  {
+    "name": "Yeti Carbon Frameset",
+    "image": "https://i.ibb.co/99jw95r/442350.webp",
+    "description": "The Yeti Cycles SB130 frame kit made of particularly lightweight carbon from the TURQ series is suitable as a versatile 29\" bike on all-mountain and enduro trails.",
+    "minimumQuantity": "500",
+    "availableQuantity": "10000",
+    "price": 800
+  },
+  {
+    "name": "Syncros Silverton Wheetset",
+    "image": "https://i.ibb.co/y8JBpt2/432154.webp",
+    "description": "The superlight Silverton Carbon wheelset from Syncros with centre lock disc brake mount and 30 mm rim width brings you outstanding performance on racing cross-country bikes. This is made possible thanks to the Superlight Carbon Layup process, in which the rim, hub flange and spokes are all made from one piece, which simultaneously ensures that the wheels remain extremely rigid even under high loads. In addition, DT Swiss hub components ensure top speed and optimal handling. The wheels helped Tom Pidcock win Olympic gold in 2021 and continue to achieve further success on Team Scott-SRAM.",
+    "minimumQuantity": "500",
+    "availableQuantity": "10000",
+    "price": 650
+  },
+  {
+    "name": "SRAM GX Eagle Derailleur",
+    "image": "https://i.ibb.co/87Pgcbv/337995.webp",
+    "description": "The SRAM GX Eagle rear derailleur for Eagle 12-speed cassettes with up to 52 teeth is robust and performs smoothly and precisely in every situation. The improved cage design optimises chain guidance and allows for immediate shifting. The rear derailleur was designed for cassettes with 10-52 teeth, but is also suitable for cassettes with a gradation of 10-50 teeth.",
+    "minimumQuantity": "500",
+    "availableQuantity": "10000",
+    "price": 1000
+  },
+  {
+    "name": "SRAM XG-1275 Cassette",
+    "image": "https://i.ibb.co/176p6PL/338448.webp",
+    "description": "The SRAM XG-1275 cassette for GX Eagle has twelve shifting levels for riders who value reliability and durability. Mud and dirt do not stand a chance to get stuck between the sprockets in its open design. The FULL-PIN™ technology, which combines precision machined steel sprockets with high-resistance stainless steel pins results in a lighter, robust cassette with good self-cleaning abilities, smooth shifting and high durability. With 10-52 teeth, you get a huge range that will give you the right gear for even the toughest climbs. Or would you like to switch to a larger chainring and reach higher speeds without compromising the climbing ability? You have all the options",
+    "minimumQuantity": "500",
+    "availableQuantity": "10000",
+    "price": 400
+  },
+  {
+    "name": "RockShox Suspension Fork",
+    "image": "https://i.ibb.co/GPH8svd/259344.webp",
+    "description": "One of the most successful and hardest working RockShox forks of all time takes advantage of the innovations of the latest SID. A chassis that combines Reba's classic XC performance with light trail work and a proven Motion Control™ RL shock rounds out the package, making Reba as capable as it gets",
+    "minimumQuantity": "500",
+    "availableQuantity": "10000",
+    "price": 550
+  },
+  {
+    "name": "Shimano Pedal",
+    "image": "https://i.ibb.co/dB3Mtdw/272599.webp",
+    "description": "The Shimano XT PD-M8100 clipless pedals were specially developed for cross-country use. They are based on the proven Shimano SPD system and have a double-sided binding. The widened shoe-pedal contact surface transfers the power of the pedal stroke super efficiently.",
+    "minimumQuantity": "500",
+    "availableQuantity": "10000",
+    "price": 250
+  }
+]

@@ -4,12 +4,10 @@
 @tailwind components;
 @tailwind utilities;
 
-
 body {
   font-size: 16px;
   font-family: 'poppins', sans-serif;
-  /* font-family: 'inter', sans-serif; */
-  /* font-family: 'roboto', sans-serif; */
+  background-color: #f6f9fc;
 }
 
 @layer components {
