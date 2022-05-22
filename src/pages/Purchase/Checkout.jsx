@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from 'react'
 import { useAuthState } from 'react-firebase-hooks/auth'
 import { useForm } from 'react-hook-form'
+import { axiosPrivate } from '../../api/axiosPrivate'
 import { auth } from '../../firebase/firebase.init'
 
 const Checkout = ({ part }) => {
   const [user] = useAuthState(auth)
-  const [totalAmount, setTotalAmount] = useState(0)
   const {
     name: productName,
     _id: productId,
@@ -18,21 +18,41 @@ const Checkout = ({ part }) => {
     register,
     formState: { errors },
     handleSubmit,
-    watch,
-    reset
+    reset,
   } = useForm({ mode: 'onChange' })
 
-  useEffect(() => {
-    const subscription = watch((data) => {
-      setTotalAmount(data.productQuantity * price)
-    })
-    return () => {
-      subscription.unsubscribe()
-    }
-  }, [watch, price])
+  // useEffect(() => {
+  //   const subscription = watch((data) => {
+  //     setTotalAmount(data.productQuantity * price)
+  //     console.log()
+  //   })
+  //   return () => {
+  //     subscription.unsubscribe()
+  //   }
+  // }, [watch, price])
 
   const onSubmit = (data) => {
-    console.log({ ...data, totalAmount: totalAmount })
+    // const totalAmount = data.productQuantity * price
+    const { productQuantity, ...rest } = data
+    const convertedQuantity = Number(productQuantity)
+    const totoalPrice = price * convertedQuantity
+
+    const item = {
+      ...rest,
+      productQuantity: convertedQuantity,
+      totoalPrice,
+      paid: false,
+    }
+
+    const updateQuantity = availableQuantity - convertedQuantity
+    axiosPrivate.post('/item', item).then((res) => {
+      if (res.data?.acknowledged) {
+        axiosPrivate.patch(`/part?id=${productId}`, {
+          availableQuantity: updateQuantity,
+        })
+      }
+    })
+
     reset()
   }
 
@@ -84,21 +104,15 @@ const Checkout = ({ part }) => {
         }
         <div className='input-wraper'>
           <label htmlFor='productId'>Product ID</label>
-          <input className='input-box' value={productId} readOnly type='text' />
-        </div>
-        {
-          //* product price
-        }
-        <div className='input-wraper'>
-          <label htmlFor='totalAmount'>Total amount</label>
           <input
             className='input-box'
-            value={totalAmount}
+            value={productId}
             readOnly
-            type='number'
-            {...register('totalAmount')}
+            type='text'
+            {...register('productId')}
           />
         </div>
+
         {
           //* product quantity
         }

@@ -11,27 +11,24 @@ const DashBoard = () => {
         </div>
       </label>
 
-
-      <div className='drawer drawer-mobile'>
+      <div className='drawer drawer-mobile '>
         <input
           id='dashboard-sidebar'
           type='checkbox'
           className='drawer-toggle'
         />
-        <div class="drawer-content flex flex-col items-center justify-center">
+        <div className='drawer-content flex flex-col'>
           <Outlet></Outlet>
         </div>
 
-        <div className='drawer-side'>
+        <div className='drawer-side '>
           <label htmlFor='dashboard-sidebar' className='drawer-overlay'></label>
-          <ul className='menu p-4 overflow-y-auto w-80 bg-base-100 text-base-content'>
+          {/* prettier-ignore */}
+          <ul className='menu p-4 overflow-y-auto w-80 text-base-content bg-accent border-r-2 border-secondary'>
             {/* <!-- Sidebar content here --> */}
-            <li>
-              <ActiveLink to='/'>Sidebar Item 1</ActiveLink>
-            </li>
-            <li>
-              <ActiveLink to='/'>Sidebar Item 2</ActiveLink>
-            </li>
+            <li><ActiveLink to='/dashboard'>My orders</ActiveLink></li>
+            <li><ActiveLink to='/dashboard/addReview'>Add review</ActiveLink></li>
+            <li><ActiveLink to='/dashboard/myProfile'>My profile</ActiveLink></li>
           </ul>
         </div>
       </div>
