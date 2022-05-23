@@ -42,10 +42,12 @@ export const useFirebase = () => {
       toast.success('logged in')
       navigate(from, { replace: true })
       const email = user?.email
-      axiosPublic(`/account/${email}`).then((res) => {
-        const token = res.data?.token
-        localStorage.setItem('token', token)
-      })
+      axiosPublic
+        .post(`/account/${email}`, { name: user.displayName })
+        .then((res) => {
+          const token = res.data?.token
+          localStorage.setItem('token', token)
+        })
     }
   }, [navigate, from, user])
 
