@@ -1,15 +1,9 @@
 import React from 'react'
-import { useQuery } from 'react-query'
-import { axiosPrivate } from '../../api/axiosPrivate'
+import { useAdmin } from '../../hooks/useAdmin'
 import User from './User'
 
 const AdminPanel = () => {
-  const {
-    data: users,
-    isLoading,
-    refetch,
-  } = useQuery('allUsers', () => axiosPrivate('/user').then((res) => res.data))
-
+  const { users, isLoading, refetch } = useAdmin()
   if (isLoading) return
 
   return (
