@@ -28,11 +28,11 @@ body {
 
   /* components...................................... */
   .form-container {
-    @apply mx-auto w-full sm:w-[450px] xl:w-[500px] shadow-xl p-12 rounded-xl select-none;
+    @apply mx-auto w-full sm:w-[450px] xl:w-[500px] shadow-xl p-12 rounded-xl select-none bg-white;
   }
 
   .form-title {
-    @apply font-bold text-4xl text-primary;
+    @apply font-bold text-3xl text-primary;
   }
 
   .input-wraper {
@@ -40,7 +40,7 @@ body {
   }
 
   .input-box {
-    @apply focus:bg-primaryBlur outline-transparent focus:outline-indigo-300 p-3 border border-slate-300 mt-2 transition-colors ease-in-out duration-200 rounded-sm;
+    @apply focus:bg-primaryBlur outline-transparent focus:outline-indigo-300 p-2 border border-slate-300 mt-2 transition-colors ease-in-out duration-200 rounded-sm;
   }
   .input-box-error {
     @apply focus:bg-dangerBlur focus:outline-error p-3 border-2 border-warning mt-2;

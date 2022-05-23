@@ -144,7 +144,7 @@ const Register = () => {
             <p className='error-text'>password does not match</p>
           )}
         </div>
-        <div className='input-wraper mt-10'>
+        <div className='input-wraper mt-12'>
           <button
             className={`${createUser.cLoading && 'btn loading border-0'
               } cta cta-primary`}
@@ -152,8 +152,8 @@ const Register = () => {
             register
           </button>
         </div>
-        <div>
-          already have account?{' '}
+        <div className='flex gap-x-2 justify-center mt-12'>
+          <p>already have account?</p>
           <span
             onClick={() =>
               navigate('/account', {

@@ -1,11 +1,9 @@
 module.exports = {
-  content: [
-    "./src/**/*.{js,jsx,ts,tsx}",
-  ],
+  content: ['./src/**/*.{js,jsx,ts,tsx}'],
   theme: {
     extend: {
       colors: {
-        primary: '#3c50e0',
+        primary: '#635bff',
         primaryBlur: '#F7F8FE',
         secondary: '#9575CD',
         secondaryDark: '#7e61b0',
@@ -15,11 +13,11 @@ module.exports = {
         warningBlur: '#FEFDEB',
         error: '#E53935',
         accent: '#f6f9fc',
-      }
+      },
     },
   },
   daisyui: {
-    themes: false,
+    themes: [],
     // false means it won't apply daisy ui theme
   },
   plugins: [require('daisyui')],

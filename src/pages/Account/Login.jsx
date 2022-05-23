@@ -70,11 +70,13 @@ const Login = () => {
           <p className='error-text'>{errors.password?.message}</p>
         </div>
 
-        <div className='input-wraper mt-10'>
+        <div className='input-wraper mt-12'>
           <button className='cta cta-primary'>login</button>
         </div>
-        <div className=''>
-          Don't have account?{' '}
+        <div className='flex gap-x-2 justify-center mt-12'>
+          <p>
+            Don't have account?
+          </p>
           <span
             onClick={() =>
               navigate('/account/register', {
@@ -87,11 +89,11 @@ const Login = () => {
             Register
           </span>
         </div>
-        <div className='divider font-medium'>Or continue with</div>
+        <div className='divider font-medium text-gray-400'>Or continue with</div>
         <button
           type='button'
           onClick={() => googleSignIn.handleGoogleSignIn()}
-          className='cta cta-glass flex items-center justify-center gap-x-2'
+          className='cta cta-glass mt-12 flex items-center justify-center gap-x-2'
         >
           <img className='w-6' src={google} alt='google' />
           <span>SignIn With Google</span>
