@@ -77,6 +77,12 @@ body {
   .badge-danger {
     @apply bg-dangerBlur text-red-500 font-semibold px-2 rounded-md;
   }
+  .badge-warning {
+    @apply bg-orange-100 text-yellow-500 font-semibold px-2 rounded-md;
+  }
+  .badge-neutral {
+    @apply bg-slate-200 text-slate-500 font-semibold px-2 rounded-md;
+  }
   .cta-glass {
     @apply hover:bg-gray-100 border-2;
   }

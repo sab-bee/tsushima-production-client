@@ -1,7 +1,7 @@
 import React from 'react'
 import { useQuery } from 'react-query'
 import { axiosPrivate } from '../../api/axiosPrivate'
-import AllUser from './AllUser'
+import User from './User'
 
 const AdminPanel = () => {
   const {
@@ -12,8 +12,6 @@ const AdminPanel = () => {
 
   if (isLoading) return
 
-  const handleAdmin = (isAdmin) => {}
-
   return (
     <div>
       <div className='grid grid-cols-4 bg-slate-200 justify-items-center items-center p-3'>
@@ -23,7 +21,7 @@ const AdminPanel = () => {
         <p>Action</p>
       </div>
       {users?.map((user) => (
-        <AllUser key={user._id} user={user} refetch={refetch} />
+        <User key={user._id} user={user} refetch={refetch} />
       ))}
     </div>
   )
