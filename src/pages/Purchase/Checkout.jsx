@@ -35,17 +35,17 @@ const Checkout = ({ part }) => {
     // const totalAmount = data.productQuantity * price
     const { productQuantity, ...rest } = data
     const convertedQuantity = Number(productQuantity)
-    const totoalPrice = price * convertedQuantity
+    const totalPrice = price * convertedQuantity
 
     const item = {
       ...rest,
       productQuantity: convertedQuantity,
-      totoalPrice,
+      totalPrice,
       paid: false,
     }
 
     const updateQuantity = availableQuantity - convertedQuantity
-    axiosPrivate.post('/item', item).then((res) => {
+    axiosPrivate.post('/order', item).then((res) => {
       if (res.data?.acknowledged) {
         axiosPrivate.patch(`/part?id=${productId}`, {
           availableQuantity: updateQuantity,

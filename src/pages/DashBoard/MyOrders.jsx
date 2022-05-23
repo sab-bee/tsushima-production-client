@@ -12,7 +12,7 @@ const MyOrders = () => {
     isLoading,
     refetch,
   } = useQuery('myitems', () =>
-    axiosPrivate(`/item?email=${user.email}`).then((res) => res.data)
+    axiosPrivate(`/order?email=${user.email}`).then((res) => res.data)
   )
 
   if (isLoading) return
@@ -27,7 +27,7 @@ const MyOrders = () => {
         <h2>action</h2>
       </div>
       {items?.map((item) => (
-        <MyOrderItem key={item._id} orderedItem={item} refetch={refetch}/>
+        <MyOrderItem key={item._id} orderedItem={item} refetch={refetch} />
       ))}
     </div>
   )
