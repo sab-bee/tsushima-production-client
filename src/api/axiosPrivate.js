@@ -1,4 +1,6 @@
 import axios from 'axios'
+import { signOut } from 'firebase/auth'
+import { auth } from '../firebase/firebase.init'
 
 export const axiosPrivate = axios.create({ baseURL: 'http://localhost:5000/' })
 
@@ -24,6 +26,9 @@ axiosPrivate.interceptors.response.use(
     return response
   },
   function (error) {
+    if (error.response.status === 403 || error.response.status === 401) {
+      signOut(auth)
+    }
     // Any status codes that falls outside the range of 2xx cause this function to trigger
     // Do something with response error
     return Promise.reject(error)

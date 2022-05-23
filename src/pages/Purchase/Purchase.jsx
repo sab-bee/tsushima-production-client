@@ -11,10 +11,13 @@ const Purchase = () => {
     data: part,
     isLoading,
     refetch,
+    isError,
   } = useQuery('part', () =>
     axiosPrivate(`/part/${_id}`).then((res) => res.data)
   )
   if (isLoading) return
+  if (isError) return
+  
   return (
     <div className='bg-white mb-[600px]'>
       <div className='box grid grid-cols-1 lg:grid-cols-2'>

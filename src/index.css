@@ -60,7 +60,7 @@ body {
     @apply p-3 w-full rounded-md font-medium transition-all ease-in-out duration-100 active:scale-[.96];
   }
   .cta-primary {
-    @apply bg-primary text-white hover:bg-primary-800;
+    @apply bg-primary text-white hover:bg-primary-800 disabled:bg-blue-400;
   }
   .cta-secondary {
     @apply bg-secondary text-white font-semibold hover:bg-secondaryDark;

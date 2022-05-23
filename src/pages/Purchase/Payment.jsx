@@ -1,6 +1,7 @@
 import { Elements } from '@stripe/react-stripe-js'
 import { loadStripe } from '@stripe/stripe-js'
 import React from 'react'
+import { useForm } from 'react-hook-form'
 import { useQuery } from 'react-query'
 import { useParams } from 'react-router-dom'
 import { axiosPrivate } from '../../api/axiosPrivate'
@@ -19,19 +20,64 @@ const Payment = () => {
   } = useQuery(['payment', _id], () =>
     axiosPrivate(`/order/${_id}`).then((res) => res.data)
   )
+
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+    reset,
+  } = useForm()
+
   if (isLoading) return
+
   //! console.log(order)
   return (
-    <div className='card w-[450px] bg-white shadow-md'>
-      <div className='card-body items-center text-center'>
-        <h2 className='card-title text-secondary'>
-          Payment $ {order?.totalPrice}
-        </h2>
-        <p>Once you complete payment you can't cancel order</p>
+    <div className='grid justify-items-center'>
+      <div className='card w-[450px] bg-white shadow-md'>
+        <div className='card-body items-center text-center'>
+          <h2 className='card-title text-secondary'>
+            Please pay $ {order?.totalPrice}
+          </h2>
+          <p>Once you complete payment you can't cancel order</p>
+        </div>
+        <div className='form-container'>
+          <form className=''>
+            <div className='input-wraper'>
+              <label htmlFor=''>Product Name</label>
+              <input
+                className='input-box'
+                type='text'
+                value={order.productName}
+                readOnly
+                {...register('productName')}
+              />
+            </div>
+            <div className='input-wraper'>
+              <label htmlFor=''>Product ID</label>
+              <input
+                className='input-box'
+                type='text'
+                value={order.productId}
+                readOnly
+                {...register('productId')}
+              />
+            </div>
+            <div className='input-wraper'>
+              <label htmlFor=''>Quantity</label>
+              <input
+                className='input-box'
+                type='text'
+                value={order.productQuantity}
+                readOnly
+                {...register('productQuantity')}
+              />
+            </div>
+          </form>
+          <Elements stripe={stripePromise}>
+            <CheckoutForm order={order} />
+          </Elements>
+        </div>
       </div>
-      <Elements stripe={stripePromise}>
-        <CheckoutForm order={order} />
-      </Elements>
     </div>
   )
 }

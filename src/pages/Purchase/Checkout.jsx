@@ -19,7 +19,12 @@ const Checkout = ({ part }) => {
     formState: { errors },
     handleSubmit,
     reset,
-  } = useForm({ mode: 'onChange' })
+  } = useForm({
+    mode: 'onChange',
+    defaultValues: {
+      productQuantity: minimumQuantity,
+    },
+  })
 
   // useEffect(() => {
   //   const subscription = watch((data) => {
@@ -52,7 +57,6 @@ const Checkout = ({ part }) => {
         })
       }
     })
-
     reset()
   }
 
@@ -171,7 +175,11 @@ const Checkout = ({ part }) => {
           <p className='error-text'>{errors.userContact?.message}</p>
         </div>
 
-        <button type='submit' className='cta cta-primary'>
+        <button
+          type='submit'
+          disabled={errors.productQuantity ? true : false}
+          className='cta cta-primary'
+        >
           complete purchase
         </button>
       </form>

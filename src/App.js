@@ -13,6 +13,7 @@ import MyOrders from './pages/DashBoard/MyOrders'
 import AddReview from './pages/DashBoard/AddReview'
 import MyProfile from './pages/DashBoard/MyProfile'
 import Payment from './pages/Purchase/Payment'
+import MakeAdmin from './pages/DashBoard/MakeAdmin'
 
 // prettier-ignore
 function App() {
@@ -35,6 +36,7 @@ function App() {
           <Route index element={<MyOrders/>}></Route>
           <Route path='addReview' element={<AddReview/>}></Route>
           <Route path='myProfile' element={<MyProfile/>}></Route>
+          <Route path='makeAdmin' element={<MakeAdmin/>}></Route>
         </Route>
         
       </Routes>

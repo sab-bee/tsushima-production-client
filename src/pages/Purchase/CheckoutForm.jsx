@@ -3,19 +3,13 @@ import React, { useEffect, useState } from 'react'
 import toast from 'react-hot-toast'
 import { axiosPrivate } from '../../api/axiosPrivate'
 
+
 const CheckoutForm = ({ order }) => {
   const stripe = useStripe()
   const elements = useElements()
   const [clientSecret, setClientSecret] = useState('')
-  const {
-    totalPrice,
-    productName,
-    paid,
-    productQuantity,
-    userName,
-    userEmail,
-    _id,
-  } = order
+  const { totalPrice, productName, userName, userEmail, _id } = order
+
 
   useEffect(() => {
     axiosPrivate.post(`/create-payment-intent`, { totalPrice }).then((res) => {
@@ -71,6 +65,8 @@ const CheckoutForm = ({ order }) => {
         date: new Date(),
       }
 
+
+
       axiosPrivate
         .patch(`/order?id=${_id}`, paymentInfo)
         .then((res) => console.log(res.data))
@@ -82,6 +78,7 @@ const CheckoutForm = ({ order }) => {
         options={{
           style: {
             base: {
+              padding: '10px 14px',
               fontSize: '16px',
               color: '#424770',
               '::placeholder': {
