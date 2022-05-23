@@ -78,7 +78,6 @@ const CheckoutForm = ({ order }) => {
         options={{
           style: {
             base: {
-              padding: '10px 14px',
               fontSize: '16px',
               color: '#424770',
               '::placeholder': {
