@@ -7,8 +7,15 @@ const CheckoutForm = ({ order }) => {
   const stripe = useStripe()
   const elements = useElements()
   const [clientSecret, setClientSecret] = useState('')
-  const { totalPrice, userName, userEmail } = order
-  const [transactionId, setTransactionId] = useState('')
+  const {
+    totalPrice,
+    productName,
+    paid,
+    productQuantity,
+    userName,
+    userEmail,
+    _id,
+  } = order
 
   useEffect(() => {
     axiosPrivate.post(`/create-payment-intent`, { totalPrice }).then((res) => {
@@ -29,7 +36,10 @@ const CheckoutForm = ({ order }) => {
       type: 'card',
       card,
     })
-    error && toast.error(error.message)
+    error &&
+      toast.error(error.message, {
+        id: toastId,
+      })
 
     const { paymentIntent, error: intentError } =
       await stripe.confirmCardPayment(clientSecret, {
@@ -43,13 +53,27 @@ const CheckoutForm = ({ order }) => {
       })
 
     if (intentError) {
-      !error && toast.error(intentError?.message)
-      toast.dismiss(toastId)
+      !error &&
+        toast.error(intentError?.message, {
+          id: toastId,
+        })
     } else {
-      toast.success('payment complete')
+      toast.success('payment complete', {
+        id: toastId,
+      })
       //! console.log(paymentIntent)
-      setTransactionId(paymentIntent.id)
-      toast.dismiss(toastId)
+
+      //store payment details on db
+      const paymentInfo = {
+        productName,
+        productId: _id,
+        transactionId: paymentIntent.id,
+        date: new Date(),
+      }
+
+      axiosPrivate
+        .patch(`/order?id=${_id}`, paymentInfo)
+        .then((res) => console.log(res.data))
     }
   }
   return (
