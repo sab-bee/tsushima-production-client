@@ -26,9 +26,9 @@ axiosPrivate.interceptors.response.use(
     return response
   },
   function (error) {
-    if (error.response.status === 403 || error.response.status === 401) {
-      signOut(auth)
-    }
+    // if (error.response.status === 403 || error.response.status === 401) {
+    //   signOut(auth)
+    // }
     // Any status codes that falls outside the range of 2xx cause this function to trigger
     // Do something with response error
     return Promise.reject(error)

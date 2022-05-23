@@ -130,9 +130,8 @@ const Register = () => {
           </label>
           <input
             id='confirmPassword'
-            className={`${
-              (errors.confirmPassword || !isPassMatch) && 'input-box-error'
-            } input-box`}
+            className={`${(errors.confirmPassword || !isPassMatch) && 'input-box-error'
+              } input-box`}
             placeholder='enter password'
             type='password'
             name='confirmPassword'
@@ -147,9 +146,8 @@ const Register = () => {
         </div>
         <div className='input-wraper mt-10'>
           <button
-            className={`${
-              createUser.cLoading && 'btn loading border-0'
-            } cta cta-primary`}
+            className={`${createUser.cLoading && 'btn loading border-0'
+              } cta cta-primary`}
           >
             register
           </button>
@@ -158,7 +156,10 @@ const Register = () => {
           already have account?{' '}
           <span
             onClick={() =>
-              navigate('/account', { state: location.state, replace: true })
+              navigate('/account', {
+                state: location.state, replace: true
+              }
+              )
             }
             className='navigator'
           >

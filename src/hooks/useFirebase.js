@@ -39,7 +39,13 @@ export const useFirebase = () => {
   const from = location.state?.from?.pathname || '/'
   useEffect(() => {
     if (user) {
-      toast.success('logged in')
+      if (!from.includes('adminPanel')) {
+        // dont show any toast if user directly goes to admin panel using url
+        toast.success('logged in', {
+          id: 'unique id',
+          position: 'top-right',
+        })
+      }
       navigate(from, { replace: true })
       const email = user?.email
       axiosPublic

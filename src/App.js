@@ -14,6 +14,7 @@ import AddReview from './pages/DashBoard/AddReview'
 import MyProfile from './pages/DashBoard/MyProfile'
 import Payment from './pages/Purchase/Payment'
 import AdminPanel from './pages/DashBoard/AdminPanel'
+import { RequireAdmin } from './auth/RequireAdmin'
 
 // prettier-ignore
 function App() {
@@ -36,7 +37,7 @@ function App() {
           <Route index element={<MyOrders/>}></Route>
           <Route path='addReview' element={<AddReview/>}></Route>
           <Route path='myProfile' element={<MyProfile/>}></Route>
-          <Route path='adminPanel' element={<AdminPanel/>}></Route>
+          <Route path='adminPanel' element={<RequireAdmin><AdminPanel/></RequireAdmin>}></Route>
         </Route>
         
       </Routes>

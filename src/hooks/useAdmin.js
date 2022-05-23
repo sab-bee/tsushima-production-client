@@ -1,12 +1,14 @@
 import { useQuery } from 'react-query'
 import { axiosPrivate } from '../api/axiosPrivate'
 
-export const useAdmin = () => {
+export const useAdmin = (user) => {
   const {
-    data: users,
+    data: admin,
     isLoading,
-    refetch,
-  } = useQuery('allUsers', () => axiosPrivate('/user').then((res) => res.data))
+    isError,
+  } = useQuery(['admin', user.email], () =>
+    axiosPrivate(`/admin?email=${user.email}`).then((res) => res.data?.admin)
+  )
 
-  return { users, isLoading, refetch }
+  return { admin, isLoading, isError }
 }
