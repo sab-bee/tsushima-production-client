@@ -22,6 +22,8 @@ const SinglePart = ({ part }) => {
           <h2 className='part-title'>{name}</h2>
           <p className='part-detail'>{description.slice(0, 200) + '...'}</p>
           <p className='part-price'>${price}</p>
+          <p>available : {availableQuantity} pieces</p>
+          <p>minimum {minimumQuantity} order acceptable</p>
         </div>
       </div>
       <div className='mt-auto text-center pb-5'>

@@ -19,7 +19,7 @@ const MyOrders = () => {
 
   return (
     <div>
-      <div className='grid grid-cols-6 justify-items-center items-center bg-indigo-200 p-3 font-semibold'>
+      <div className='grid grid-cols-6 justify-items-center items-center bg-slate-200 p-3 font-semibold'>
         <h2>name</h2>
         <h2>quantity</h2>
         <h2>price</h2>

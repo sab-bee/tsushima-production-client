@@ -38,7 +38,7 @@ export const useFirebase = () => {
 
   const from = location.state?.from?.pathname || '/'
   useEffect(() => {
-    if (user) {
+    if (user?.displayName) {
       if (!from.includes('adminPanel')) {
         // dont show any toast if user directly goes to admin panel using url
         toast.success('logged in', {
@@ -48,14 +48,15 @@ export const useFirebase = () => {
       }
       navigate(from, { replace: true })
       const email = user?.email
+
       axiosPublic
-        .post(`/account/${email}`, { name: user.displayName })
+        .post(`/account/${email}`, { name: user?.displayName })
         .then((res) => {
           const token = res.data?.token
           localStorage.setItem('token', token)
         })
     }
-  }, [navigate, from, user])
+  }, [navigate, from, user?.displayName, user?.email])
 
   const handleGoogleSignIn = () => {
     signInWithGoogle()

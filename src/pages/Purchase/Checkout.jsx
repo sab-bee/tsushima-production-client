@@ -62,7 +62,7 @@ const Checkout = ({ part }) => {
 
   return (
     <div className='form-container lg:relative top-1/2'>
-      <h2 className='form-title'>checkout</h2>
+      <h2 className='form-title'>Purchase</h2>
       <form onSubmit={handleSubmit(onSubmit)}>
         {
           //* username
@@ -73,6 +73,7 @@ const Checkout = ({ part }) => {
             className='input-box'
             value={user.displayName}
             readOnly
+            disabled
             type='text'
             {...register('userName')}
           />
@@ -86,6 +87,7 @@ const Checkout = ({ part }) => {
             className='input-box'
             value={user.email}
             readOnly
+            disabled
             type='text'
             {...register('userEmail')}
           />
@@ -99,6 +101,7 @@ const Checkout = ({ part }) => {
             className='input-box'
             value={productName}
             readOnly
+            disabled
             type='text'
             {...register('productName')}
           />
@@ -112,6 +115,7 @@ const Checkout = ({ part }) => {
             className='input-box'
             value={productId}
             readOnly
+            disabled
             type='text'
             {...register('productId')}
           />
@@ -121,7 +125,7 @@ const Checkout = ({ part }) => {
           //* product quantity
         }
         <div className='input-wraper'>
-          <label htmlFor='productName'>Quantity</label>
+          <label htmlFor='productName'>Quantity - available</label>
           <input
             className='input-box'
             type='number'

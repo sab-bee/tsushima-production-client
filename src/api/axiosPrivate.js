@@ -2,7 +2,7 @@ import axios from 'axios'
 import { signOut } from 'firebase/auth'
 import { auth } from '../firebase/firebase.init'
 
-export const axiosPrivate = axios.create({ baseURL: 'https://nameless-falls-29152.herokuapp.com/' })
+export const axiosPrivate = axios.create({ baseURL: 'http://localhost:5000' })
 
 axiosPrivate.interceptors.request.use(
   function (config) {

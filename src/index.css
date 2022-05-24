@@ -40,10 +40,10 @@ body {
   }
 
   .input-box {
-    @apply focus:bg-primaryBlur outline-transparent focus:outline-indigo-300 p-2 border border-slate-300 mt-2 transition-colors ease-in-out duration-200 rounded-sm;
+    @apply focus:bg-primaryBlur outline-transparent focus:outline-indigo-300 p-2 border border-slate-300 mt-2 transition-colors ease-in-out duration-200 rounded-sm disabled:bg-gray-100;
   }
   .input-box-error {
-    @apply focus:bg-dangerBlur focus:outline-error p-3 border-2 border-warning mt-2;
+    @apply focus:bg-dangerBlur focus:outline-error p-2 border border-warning mt-2;
   }
   .input-box-success {
     @apply focus:bg-green-50 focus:outline-green-400;
@@ -60,7 +60,7 @@ body {
     @apply p-3 w-full rounded-md font-medium transition-all ease-in-out duration-100 active:scale-[.96];
   }
   .cta-primary {
-    @apply bg-primary text-white hover:bg-primary-800 disabled:bg-blue-400;
+    @apply bg-primary text-white hover:bg-primary-800 disabled:bg-indigo-300;
   }
   .cta-secondary {
     @apply bg-secondary text-white font-semibold hover:bg-secondaryDark;
@@ -78,7 +78,7 @@ body {
     @apply bg-dangerBlur text-red-500 font-semibold px-2 rounded-md;
   }
   .badge-warning {
-    @apply bg-orange-100 text-yellow-500 font-semibold px-2 rounded-md;
+    @apply bg-orange-100 text-yellow-600 font-semibold px-2 rounded-md;
   }
   .badge-neutral {
     @apply bg-slate-200 text-slate-500 font-semibold px-2 rounded-md;
