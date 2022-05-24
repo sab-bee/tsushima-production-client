@@ -41,7 +41,9 @@ const DashBoard = () => {
               admin ? <>
                 <li><ActiveLink to='/dashboard/adminPanel'>Admin Panel</ActiveLink></li>
                 <li><ActiveLink to='/dashboard/addProduct'>Add Product</ActiveLink></li>
-                </> :
+                <li><ActiveLink to='/dashboard/manageProduct'>Manage Product</ActiveLink></li>
+                <li><ActiveLink to='/dashboard/manageOrder'>Manage Order</ActiveLink></li>
+              </> :
                 <>
                   <li>
                     <ActiveLink to='/dashboard/addReview'>Add review</ActiveLink>

@@ -26,22 +26,11 @@ const Checkout = ({ part }) => {
     },
   })
 
-  // useEffect(() => {
-  //   const subscription = watch((data) => {
-  //     setTotalAmount(data.productQuantity * price)
-  //     console.log()
-  //   })
-  //   return () => {
-  //     subscription.unsubscribe()
-  //   }
-  // }, [watch, price])
-
   const onSubmit = (data) => {
-    // const totalAmount = data.productQuantity * price
     const { productQuantity, ...rest } = data
     const convertedQuantity = Number(productQuantity)
     const totalPrice = price * convertedQuantity
-
+    //! console.log(data)
     const item = {
       ...rest,
       productQuantity: convertedQuantity,
@@ -73,7 +62,7 @@ const Checkout = ({ part }) => {
             className='input-box'
             value={user.displayName}
             readOnly
-            disabled
+
             type='text'
             {...register('userName')}
           />
@@ -87,7 +76,7 @@ const Checkout = ({ part }) => {
             className='input-box'
             value={user.email}
             readOnly
-            disabled
+
             type='text'
             {...register('userEmail')}
           />
@@ -101,7 +90,7 @@ const Checkout = ({ part }) => {
             className='input-box'
             value={productName}
             readOnly
-            disabled
+
             type='text'
             {...register('productName')}
           />
@@ -115,7 +104,7 @@ const Checkout = ({ part }) => {
             className='input-box'
             value={productId}
             readOnly
-            disabled
+
             type='text'
             {...register('productId')}
           />

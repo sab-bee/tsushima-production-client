@@ -3,6 +3,7 @@ import React, { useState } from 'react';
 import { useForm } from 'react-hook-form';
 import toast from 'react-hot-toast';
 import { axiosPrivate } from '../../api/axiosPrivate';
+import { useParts } from '../../hooks/useParts';
 
 const AddProduct = () => {
   const {
@@ -24,19 +25,21 @@ const AddProduct = () => {
     const formData = new FormData()
     formData.append('image', thumbnail)
 
-    axios.post(`https://api.imgbb.com/1/upload?key=${imageApiKey}`, formData).then((res) => {
-      if (res?.data?.success) {
-        const productData = { ...rest, minimumQuantity: Number(minimumQuantity), availableQuantity: Number(availableQuantity), price: Number(price), image: res.data?.data?.url }
-        //! console.log(productData);
-        axiosPrivate.post('/part', productData).then((res) => {
-          console.log(res)
-          toast.success('product added')
-        })
-      }
-    }).catch((err) => {
-      toast.error('could not upload image')
+    const productData = { ...rest, minimumQuantity: Number(minimumQuantity), availableQuantity: Number(availableQuantity), price: Number(price) }
+    //! console.log(productData);
+    axiosPrivate.post('/part', productData).then((res) => {
+      const insertedId = res.data?.insertedId
+      toast.success('product added', {
+        position: 'bottom-center'
+      })
+      reset()
+      axios.post(`https://api.imgbb.com/1/upload?key=${imageApiKey}`, formData).then((res) => {
+        if (res.status === 200) {
+          const image = res.data?.data?.url
+          axiosPrivate.put(`/part?id=${insertedId}`, { image }).then().catch((err) => toast.error('could not upload image'))
+        }
+      })
     })
-
 
   }
   return (

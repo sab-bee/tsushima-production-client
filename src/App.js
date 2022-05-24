@@ -16,6 +16,8 @@ import Payment from './pages/Purchase/Payment'
 import AdminPanel from './pages/DashBoard/AdminPanel'
 import { RequireAdmin } from './auth/RequireAdmin'
 import AddProduct from './pages/DashBoard/AddProduct'
+import ManageProduct from './pages/DashBoard/ManageProduct'
+import ManageOrder from './pages/DashBoard/ManageOrder'
 
 // prettier-ignore
 function App() {
@@ -40,6 +42,8 @@ function App() {
           <Route path='myProfile' element={<MyProfile/>}></Route>
           <Route path='adminPanel' element={<RequireAdmin><AdminPanel/></RequireAdmin>}></Route>
           <Route path='addProduct' element={<RequireAdmin><AddProduct/></RequireAdmin>}></Route>
+          <Route path='manageProduct' element={<RequireAdmin><ManageProduct/></RequireAdmin>}></Route>
+          <Route path='manageOrder' element={<RequireAdmin><ManageOrder/></RequireAdmin>}></Route>
         </Route>
         
       </Routes>
