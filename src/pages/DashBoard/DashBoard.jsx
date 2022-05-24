@@ -50,6 +50,7 @@ const DashBoard = () => {
                   </li>
                 </>
             }
+         
             <li><ActiveLink to='/dashboard/myProfile'>My profile</ActiveLink></li>
           </ul>
         </div>

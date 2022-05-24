@@ -14,7 +14,7 @@ const AdminPanel = () => {
 
   return (
     <div>
-      <div className='grid grid-cols-4 bg-slate-200 font-semibol justify-items-center items-center p-3'>
+      <div className='grid grid-cols-4 bg-slate-200 font-semibol justify-items-center items-center p-3 font-semibold'>
         <p>Name</p>
         <p>email</p>
         <p>Role</p>

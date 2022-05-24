@@ -18,6 +18,7 @@ import { RequireAdmin } from './auth/RequireAdmin'
 import AddProduct from './pages/DashBoard/AddProduct'
 import ManageProduct from './pages/DashBoard/ManageProduct'
 import ManageOrder from './pages/DashBoard/ManageOrder'
+import { RquireUserOnly } from './auth/RquireUserOnly'
 
 // prettier-ignore
 function App() {
@@ -38,7 +39,7 @@ function App() {
         <Route path='/payment/:_id' element={<ProtectedRoute><Payment/></ProtectedRoute>}></Route>
         <Route path='/dashboard' element={<ProtectedRoute><DashBoard/></ProtectedRoute>}>
           <Route index element={<MyOrders/>}></Route>
-          <Route path='addReview' element={<AddReview/>}></Route>
+          <Route path='addReview' element={<RquireUserOnly><AddReview/></RquireUserOnly>}></Route>
           <Route path='myProfile' element={<MyProfile/>}></Route>
           <Route path='adminPanel' element={<RequireAdmin><AdminPanel/></RequireAdmin>}></Route>
           <Route path='addProduct' element={<RequireAdmin><AddProduct/></RequireAdmin>}></Route>
