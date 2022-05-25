@@ -1,6 +1,7 @@
 import { CardElement, useElements, useStripe } from '@stripe/react-stripe-js'
 import React, { useEffect, useState } from 'react'
 import toast from 'react-hot-toast'
+import { useNavigate } from 'react-router-dom'
 import { axiosPrivate } from '../../api/axiosPrivate'
 
 
@@ -10,7 +11,7 @@ const CheckoutForm = ({ order }) => {
   const [clientSecret, setClientSecret] = useState('')
   const { totalPrice, productName, userName, userEmail, _id } = order
 
-
+  const navigate = useNavigate()
   useEffect(() => {
     axiosPrivate.post(`/create-payment-intent`, { totalPrice }).then((res) => {
       if (res?.data?.clientSecret) {
@@ -64,12 +65,7 @@ const CheckoutForm = ({ order }) => {
         transactionId: paymentIntent.id,
         date: new Date(),
       }
-
-
-
-      axiosPrivate
-        .patch(`/order?id=${_id}`, paymentInfo)
-        .then((res) => console.log(res.data))
+      axiosPrivate.patch(`/order?id=${_id}`, paymentInfo).then(() => navigate('/dashboard/myOrder'))
     }
   }
   return (

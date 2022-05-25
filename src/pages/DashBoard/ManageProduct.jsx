@@ -7,16 +7,22 @@ const ManageProduct = () => {
   if (isLoading) return
 
   return (
-    <div className=''>
-      <div className='grid grid-cols-4 justify-items-center items-center font-semibold p-3 bg-slate-200'>
-        <p>Name</p>
-        <p>Stock</p>
-        <p>Price</p>
-        <p>Action</p>
-      </div>
-      {
-        parts?.map((part) => <ManageSingleProduct key={part._id} part={part} refetch={refetch} />)
-      }
+    <div className='overflow-x-auto'>
+      <table className='min-w-max'>
+        <thead className='bg-slate-200'>
+          <tr>
+            <th className='px-8 py-3'>Name</th>
+            <th className='px-8 py-3'>Stock</th>
+            <th className='px-8 py-3'>Price</th>
+            <th className='px-8 py-3'>Action</th>
+          </tr>
+        </thead>
+        <tbody>
+          {
+            parts?.map((part) => <ManageSingleProduct key={part._id} part={part} refetch={refetch} />)
+          }
+        </tbody>
+      </table>
     </div>
   );
 };

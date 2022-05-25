@@ -19,12 +19,12 @@ const ManageOrder = () => {
             <th className='px-8 py-3'>Ordered quantity</th>
             <th className='px-8 py-3'>Total payment</th>
             <th className='px-8 py-3'>Payment status</th>
-            <th className='px-8 py-3'>Cancel order</th>
+            <th className='px-8 py-3'>Confirm</th>
           </tr>
         </thead>
         <tbody>
           {
-            orders.map((order) => <ManageSingleOrder key={order._id} order={order} />)}
+            orders.map((order) => <ManageSingleOrder key={order._id} order={order} refetch={refetch}/>)}
         </tbody>
       </table>
     </div>

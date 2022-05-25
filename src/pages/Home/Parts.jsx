@@ -7,7 +7,7 @@ const Parts = () => {
   if (isLoading) return
 
   return (
-    <div className='parts-container'>
+    <div className='bg-white py-12'>
       <h2 className='title-center'>parts</h2>
       <div className='part-cols'>
         {parts?.map((part) => (

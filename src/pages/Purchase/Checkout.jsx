@@ -1,11 +1,14 @@
 import React, { useEffect, useState } from 'react'
 import { useAuthState } from 'react-firebase-hooks/auth'
 import { useForm } from 'react-hook-form'
+import toast from 'react-hot-toast'
+import { useNavigate } from 'react-router-dom'
 import { axiosPrivate } from '../../api/axiosPrivate'
 import { auth } from '../../firebase/firebase.init'
 
 const Checkout = ({ part }) => {
   const [user] = useAuthState(auth)
+  const navigate = useNavigate()
   const {
     name: productName,
     _id: productId,
@@ -36,6 +39,7 @@ const Checkout = ({ part }) => {
       productQuantity: convertedQuantity,
       totalPrice,
       paid: false,
+      shipped: false
     }
 
     const updateQuantity = availableQuantity - convertedQuantity
@@ -45,6 +49,9 @@ const Checkout = ({ part }) => {
           availableQuantity: updateQuantity,
         })
       }
+    }).then(() => {
+      toast.success('order placed')
+      navigate('/dashboard/myOrder')
     })
     reset()
   }
@@ -173,7 +180,7 @@ const Checkout = ({ part }) => {
           disabled={errors.productQuantity ? true : false}
           className='cta cta-primary'
         >
-          complete purchase
+          proceed purchase
         </button>
       </form>
     </div>

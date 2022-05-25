@@ -22,34 +22,36 @@ const User = ({ user, refetch }) => {
   }
 
   return (
-    <div className='grid grid-cols-4 border-b justify-items-center items-center p-3'>
-      <p>{name}</p>
-      <p>{email}</p>
-      {admin ? (
-        <p className='badge-warning flex'>
-          admin
-          <span>
-            <AiTwotoneCrown />
-          </span>
-        </p>
-      ) : (
-        <p className='badge-neutral'>user</p>
-      )}
-
-      <div>
+    <>
+      <tr className='border-b'>
+        <td className='px-8 py-3'>{name}</td>
+        <td className='px-8 py-3'>{email}</td>
         {admin ? (
-          <button className='cta cta-secondary w-fit '>manage</button>
+          <p className='badge-warning flex'>
+            admin
+            <span>
+              <AiTwotoneCrown />
+            </span>
+          </p>
         ) : (
-          <label htmlFor='modal-admin' className='cta cta-primary w-fit cursor-pointer' onClick={() => setMakeAdmin(true)}>
-            make admin
-          </label>
+          <p className='badge-neutral'>user</p>
         )}
-      </div>
+
+        <td className='px-8 py-3'>
+          {admin ? (
+            <button className='cta cta-secondary w-fit '>manage</button>
+          ) : (
+            <label htmlFor='modal-admin' className='cta cta-primary w-fit cursor-pointer' onClick={() => setMakeAdmin(true)}>
+              make admin
+            </label>
+          )}
+        </td>
+      </tr>
       {
         makeAdmin &&
         <ModalAdmin handleAdmin={handleAdmin}></ModalAdmin>
       }
-    </div>
+    </>
   )
 }
 

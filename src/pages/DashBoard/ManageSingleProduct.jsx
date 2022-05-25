@@ -13,15 +13,15 @@ const ManageSingleProduct = ({ part, refetch }) => {
     })
   }
   return (
-    <div className='grid grid-cols-4 justify-items-center items-center p-2 border-b'>
-      <h2>{name}</h2>
-      <h2>{availableQuantity}</h2>
-      <h2>{price}</h2>
-      <label htmlFor='stock-modal' className='cta cta-danger w-fit cursor-pointer' onClick={() => setRemoveItem(true)}>revove</label>
+    <tr className='border-b'>
+      <td className='px-8 py-3'>{name}</td>
+      <td className='px-8 py-3'>{availableQuantity}</td>
+      <td className='px-8 py-3'>{price}</td>
+      <td className='px-8 py-3'><label htmlFor='stock-modal' className='cta cta-danger w-fit cursor-pointer' onClick={() => setRemoveItem(true)}>revove</label></td>
       {
         removeItem && <ModalStock handleRemoveStock={handleRemoveStock}></ModalStock>
       }
-    </div>
+    </tr>
   );
 };
 

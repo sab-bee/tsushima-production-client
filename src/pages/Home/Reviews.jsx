@@ -8,14 +8,14 @@ const Reviews = () => {
 
   if (isLoading) return
   return (
-    <>
+    <div className='py-12'>
       <h2 className=' title-center'>User Reviews</h2>
       <div className='part-cols'>
         {
           reviews?.map((review) => <Review key={review._id} review={review} />)
         }
       </div>
-    </>
+    </div>
   );
 };
 

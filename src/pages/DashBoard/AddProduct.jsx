@@ -1,9 +1,8 @@
 import axios from 'axios';
-import React, { useState } from 'react';
+import React from 'react';
 import { useForm } from 'react-hook-form';
 import toast from 'react-hot-toast';
 import { axiosPrivate } from '../../api/axiosPrivate';
-import { useParts } from '../../hooks/useParts';
 
 const AddProduct = () => {
   const {
@@ -16,7 +15,6 @@ const AddProduct = () => {
   })
 
   const imageApiKey = '2abc723795f5afbbffa21a87ab1de23e'
-  // const imageApiKey = '2abc723795f5afbbffa21a87ab1de23'
 
   const handleAddProduct = (data) => {
     const { image, minimumQuantity, availableQuantity, price, ...rest } = data

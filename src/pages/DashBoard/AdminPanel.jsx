@@ -13,16 +13,22 @@ const AdminPanel = () => {
   if (isLoading) return
 
   return (
-    <div>
-      <div className='grid grid-cols-4 bg-slate-200 font-semibol justify-items-center items-center p-3 font-semibold'>
-        <p>Name</p>
-        <p>email</p>
-        <p>Role</p>
-        <p>Action</p>
-      </div>
-      {users?.map((user) => (
-        <User key={user._id} user={user} refetch={refetch} />
-      ))}
+    <div className='overflow-x-auto'>
+      <table className='min-w-max'>
+        <thead>
+          <tr className='bg-slate-200'>
+            <th className='px-8 py-3'>Name</th>
+            <th className='px-8 py-3'>email</th>
+            <th className='px-8 py-3'>Role</th>
+            <th className='px-8 py-3'>Action</th>
+          </tr>
+        </thead>
+        <tbody>
+          {users?.map((user) => (
+            <User key={user._id} user={user} refetch={refetch} />
+          ))}
+        </tbody>
+      </table>
     </div>
   )
 }
