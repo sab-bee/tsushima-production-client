@@ -38,15 +38,14 @@ function App() {
         </Route>
         <Route path='/payment/:_id' element={<ProtectedRoute><Payment/></ProtectedRoute>}></Route>
         <Route path='/dashboard' element={<ProtectedRoute><DashBoard/></ProtectedRoute>}>
-          <Route index element={<MyOrders/>}></Route>
+          <Route path='myOrder' element={<RquireUserOnly><MyOrders/></RquireUserOnly>}></Route>
           <Route path='addReview' element={<RquireUserOnly><AddReview/></RquireUserOnly>}></Route>
-          <Route path='myProfile' element={<MyProfile/>}></Route>
+          <Route index element={<MyProfile/>}></Route>
           <Route path='adminPanel' element={<RequireAdmin><AdminPanel/></RequireAdmin>}></Route>
           <Route path='addProduct' element={<RequireAdmin><AddProduct/></RequireAdmin>}></Route>
           <Route path='manageProduct' element={<RequireAdmin><ManageProduct/></RequireAdmin>}></Route>
           <Route path='manageOrder' element={<RequireAdmin><ManageOrder/></RequireAdmin>}></Route>
         </Route>
-        
       </Routes>
     </div>
   )

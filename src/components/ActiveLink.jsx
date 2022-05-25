@@ -6,7 +6,7 @@ function ActiveLink({ children, to, ...props }) {
 
   return (
     <Link
-      className={`${match && 'bg-primary text-white'} active:bg-transparent`}
+      className={`${match && 'bg-primary text-white'} active:bg-indigo-100 transition-colors`}
       to={to}
       {...props}
     >

@@ -12,7 +12,7 @@ export function RquireUserOnly({ children }) {
   if (loading || isLoding) return
 
   if (!user || admin) {
-    toast.error('admin can not access review', {
+    toast.error('cant access only tab', {
       id: 2
     })
     return <Navigate to='/' />

@@ -24,7 +24,7 @@ const AddReview = () => {
   }
 
   return (
-    <div className='w-96 mx-auto mt-40 shadow-lg bg-white p-12 rounded-md'>
+    <div className='w-96 mx-auto margin shadow-lg bg-white p-12 rounded-md'>
       <h2 className='mb-8'>Let us know about your experince</h2>
       <form onSubmit={handleRating}>
         <div className='grid justify-items-center'>

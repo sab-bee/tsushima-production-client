@@ -1,10 +1,12 @@
 import ActiveLink from '../../components/ActiveLink'
 import { Outlet } from 'react-router-dom'
 import { useAuthState } from 'react-firebase-hooks/auth'
-import { AiOutlineMenu } from "react-icons/ai";
+import { AiOutlineMenu, AiOutlineCluster, AiOutlineStar, AiOutlineTags, AiOutlineUser, AiOutlineAppstoreAdd, AiOutlineNodeExpand } from "react-icons/ai";
 import { useAdmin } from '../../hooks/useAdmin'
 import { auth } from '../../firebase/firebase.init'
 import { useState } from 'react'
+import { RiAdminLine } from "react-icons/ri";
+
 
 const DashBoard = () => {
   const [user] = useAuthState(auth)
@@ -19,7 +21,7 @@ const DashBoard = () => {
 
   return (
     <div>
-      <div className={`${expand && 'ml-80'} ml-16 transition-all ease-in-out duration-500`}>
+      <div className={`${expand ? 'ml-80' : 'ml-16'} transition-all ease-in-out duration-500`}>
         <Outlet ></Outlet>
       </div>
       <div
@@ -27,45 +29,58 @@ const DashBoard = () => {
           } w-80 h-screen bg-white shadow-lg fixed top-0 transition-all ease-in-out duration-500 mt-24`}
       >
         <div className='grid'>
-          <button className='justify-self-end text-xl p-5' onClick={() => setExpand(!expand)}><AiOutlineMenu /></button>
-
+          <div className='flex justify-between'>
+            <h2 className='font-medium p-5'>Dashboard</h2>
+            <button className='text-xl active:bg-indigo-200 py-5 px-5 transition-colors' onClick={() => setExpand(!expand)}><AiOutlineMenu /></button>
+          </div>
+          <ActiveLink to='/dashboard'>
+            <div className='flex justify-between p-5'>
+              <span>My profile</span>
+              <span className='text-xl'><AiOutlineUser /></span>
+            </div></ActiveLink>
           {
             // prettier-ignore
             admin ? <>
               <ActiveLink to='/dashboard/adminPanel'>
                 <div className='flex justify-between p-5'>
                   <span>Admin Panel</span>
-                  <span>icon</span>
+                  <span className='text-xl' title='admin panel'><RiAdminLine /></span>
                 </div>
               </ActiveLink>
 
               <ActiveLink to='/dashboard/addProduct'>
                 <div className='flex justify-between p-5'>
                   <span>Add Product</span>
-                  <span>icon</span>
+                  <span className='text-xl'><AiOutlineAppstoreAdd /></span>
                 </div>
               </ActiveLink>
 
               <ActiveLink to='/dashboard/manageProduct'>
                 <div className='flex justify-between p-5'>
                   <span>Manage Product</span>
-                  <span>icon</span>
+                  <span className='text-xl'><AiOutlineNodeExpand /></span>
                 </div>
               </ActiveLink>
               <ActiveLink to='/dashboard/manageOrder'>
                 <div className='flex justify-between p-5'>
                   <span>Manage Order</span>
-                  <span>icon</span>
+                  <span className='text-xl'><AiOutlineCluster /></span>
                 </div></ActiveLink>
             </> : <>
 
               <ActiveLink to='/dashboard/addReview'>
                 <div className='flex justify-between p-5'>
                   <span>Add review</span>
-                  <span>icon</span>
+                  <span className='text-xl'><AiOutlineStar /></span>
+                </div></ActiveLink>
+              <ActiveLink to='/dashboard/myOrder'>
+                <div className='flex justify-between p-5'>
+                  <span>My orders</span>
+                  <span className='text-xl'><AiOutlineTags /></span>
                 </div></ActiveLink>
             </>
           }
+
         </div>
 
       </div>

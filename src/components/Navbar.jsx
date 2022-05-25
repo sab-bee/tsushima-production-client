@@ -39,10 +39,10 @@ const Navbar = () => {
       <div className='nav-container'>
         <div className='navbar'>
           <div>
-            <button onClick={() => setExpand(true)} className='block lg:hidden'>
+            <button onClick={() => setExpand(true)} className='block sm:hidden'>
               <HiMenuAlt1 className='text-xl' />
             </button>
-            <Link to='/' className='hidden lg:block'>
+            <Link to='/' className='hidden sm:block'>
               Logo
             </Link>
           </div>
