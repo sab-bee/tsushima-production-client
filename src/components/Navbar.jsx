@@ -50,8 +50,10 @@ const Navbar = () => {
             {menus.map((menu, index) => {
               return (
                 !menu.hide && (
-                  <ActiveLink key={index} to={menu.url} className='menu-item' >
-                    {menu.name}
+                  <ActiveLink key={index} to={menu.url} >
+                    <div className='menu-item'>
+                      {menu.name}
+                    </div>
                   </ActiveLink>
                 )
               )

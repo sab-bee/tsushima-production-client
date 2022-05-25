@@ -10,7 +10,7 @@ const Parts = () => {
     <div className='parts-container'>
       <h2 className='title-center'>parts</h2>
       <div className='part-cols'>
-        {parts.map((part) => (
+        {parts?.map((part) => (
           <SinglePart key={part._id} part={part} />
         ))}
       </div>

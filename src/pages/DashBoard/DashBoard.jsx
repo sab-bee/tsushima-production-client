@@ -1,4 +1,4 @@
-import ActiveLink from '../../components/ActiveLink'
+import ActiveTab from '../../components/ActiveTab'
 import { Outlet } from 'react-router-dom'
 import { useAuthState } from 'react-firebase-hooks/auth'
 import { AiOutlineMenu, AiOutlineCluster, AiOutlineStar, AiOutlineTags, AiOutlineUser, AiOutlineAppstoreAdd, AiOutlineNodeExpand } from "react-icons/ai";
@@ -33,51 +33,51 @@ const DashBoard = () => {
             <h2 className='font-medium p-5'>Dashboard</h2>
             <button className='text-xl active:bg-indigo-200 py-5 px-5 transition-colors' onClick={() => setExpand(!expand)}><AiOutlineMenu /></button>
           </div>
-          <ActiveLink to='/dashboard'>
+          <ActiveTab to='/dashboard'>
             <div className='flex justify-between p-5'>
               <span>My profile</span>
               <span className='text-xl'><AiOutlineUser /></span>
-            </div></ActiveLink>
+            </div></ActiveTab>
           {
             // prettier-ignore
             admin ? <>
-              <ActiveLink to='/dashboard/adminPanel'>
+              <ActiveTab to='/dashboard/adminPanel'>
                 <div className='flex justify-between p-5'>
                   <span>Admin Panel</span>
                   <span className='text-xl' title='admin panel'><RiAdminLine /></span>
                 </div>
-              </ActiveLink>
+              </ActiveTab>
 
-              <ActiveLink to='/dashboard/addProduct'>
+              <ActiveTab to='/dashboard/addProduct'>
                 <div className='flex justify-between p-5'>
                   <span>Add Product</span>
                   <span className='text-xl'><AiOutlineAppstoreAdd /></span>
                 </div>
-              </ActiveLink>
+              </ActiveTab>
 
-              <ActiveLink to='/dashboard/manageProduct'>
+              <ActiveTab to='/dashboard/manageProduct'>
                 <div className='flex justify-between p-5'>
                   <span>Manage Product</span>
                   <span className='text-xl'><AiOutlineNodeExpand /></span>
                 </div>
-              </ActiveLink>
-              <ActiveLink to='/dashboard/manageOrder'>
+              </ActiveTab>
+              <ActiveTab to='/dashboard/manageOrder'>
                 <div className='flex justify-between p-5'>
                   <span>Manage Order</span>
                   <span className='text-xl'><AiOutlineCluster /></span>
-                </div></ActiveLink>
+                </div></ActiveTab>
             </> : <>
 
-              <ActiveLink to='/dashboard/addReview'>
+              <ActiveTab to='/dashboard/addReview'>
                 <div className='flex justify-between p-5'>
                   <span>Add review</span>
                   <span className='text-xl'><AiOutlineStar /></span>
-                </div></ActiveLink>
-              <ActiveLink to='/dashboard/myOrder'>
+                </div></ActiveTab>
+              <ActiveTab to='/dashboard/myOrder'>
                 <div className='flex justify-between p-5'>
                   <span>My orders</span>
                   <span className='text-xl'><AiOutlineTags /></span>
-                </div></ActiveLink>
+                </div></ActiveTab>
             </>
           }
 

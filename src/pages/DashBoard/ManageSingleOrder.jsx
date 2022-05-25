@@ -14,6 +14,7 @@ const ManageSingleOrder = ({ order }) => {
         paid ? <td className='py-3 px-8'><p className='badge-success w-fit mx-auto'>paid</p></td> :
           <td className='py-3 px-8'><p className="badge-danger  w-fit mx-auto ">unpaid</p></td>
       }
+      <td className='py-3 px-8'>revoke</td>
     </tr>
 
 

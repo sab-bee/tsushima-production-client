@@ -19,6 +19,7 @@ const ManageOrder = () => {
             <th className='px-8 py-3'>Ordered quantity</th>
             <th className='px-8 py-3'>Total payment</th>
             <th className='px-8 py-3'>Payment status</th>
+            <th className='px-8 py-3'>Cancel order</th>
           </tr>
         </thead>
         <tbody>
