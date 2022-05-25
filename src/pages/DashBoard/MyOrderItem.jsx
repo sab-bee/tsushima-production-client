@@ -10,17 +10,17 @@ const MyOrderItem = ({ orderedItem, refetch }) => {
   const [cancel, setCancel] = useState(false)
 
   return (
-    <tr>
-      <td className='p-3'>{productName}</td>
-      <td className='p-3'>{productQuantity}</td>
-      <td className='p-3'>$ {totalPrice}</td>
+    <tr className='border-b'>
+      <td className='py-3 px-8 '>{productName}</td>
+      <td className='py-3 px-8 '>{productQuantity}</td>
+      <td className='py-3 px-8 '>$ {totalPrice}</td>
       <td
         className={`${paid ? 'badge-success' : 'badge-danger'
           } text-center w-fit`}
       >
         {paid ? 'paid' : 'unpaid'}
       </td>
-      <td className='space-x-2 col-span-2 flex flex-col md:block w-full text-center'>
+      <td className='space-x-2 col-span-2 flex flex-col md:block w-full text-center px-8 py-3'>
         {!paid && (
           <Link
             className='bg-secondary cta text-white hover:bg-secondaryDark w-fit'
@@ -41,7 +41,7 @@ const MyOrderItem = ({ orderedItem, refetch }) => {
           <p className='break-words'>{transactionId}</p>
         )}
       </td>
-      <td>
+      <td className='py-3 px-8'>
         {
           cancel &&
           <Modal orderedItem={orderedItem} refetch={refetch}></Modal>

@@ -1,59 +1,73 @@
 import ActiveLink from '../../components/ActiveLink'
-import { BiRightArrowAlt } from 'react-icons/bi'
 import { Outlet } from 'react-router-dom'
 import { useAuthState } from 'react-firebase-hooks/auth'
-
+import { AiOutlineMenu } from "react-icons/ai";
 import { useAdmin } from '../../hooks/useAdmin'
 import { auth } from '../../firebase/firebase.init'
+import { useState } from 'react'
+
 const DashBoard = () => {
   const [user] = useAuthState(auth)
-
+  const [expand, setExpand] = useState(false)
   const {
     admin,
     isLoading,
     isError,
   } = useAdmin(user)
   if (isLoading || isError) return
+
+
   return (
     <div>
-      <label htmlFor='dashboard-sidebar' className='lg:hidden text-4xl'>
-        <div className='rounded-full bg-secondary w-10 h-10 grid items-center'>
-          <BiRightArrowAlt />
-        </div>
-      </label>
+      <div className={`${expand && 'ml-80'} ml-16 transition-all ease-in-out duration-500`}>
+        <Outlet ></Outlet>
+      </div>
+      <div
+        className={`${expand ? 'left-0' : '-left-64'
+          } w-80 h-screen bg-white shadow-lg fixed top-0 transition-all ease-in-out duration-500 mt-24`}
+      >
+        <div className='grid'>
+          <button className='justify-self-end text-xl p-5' onClick={() => setExpand(!expand)}><AiOutlineMenu /></button>
 
-      <div className='drawer drawer-mobile '>
-        <input
-          id='dashboard-sidebar'
-          type='checkbox'
-          className='drawer-toggle'
-        />
-        <div className='drawer-content flex flex-col'>
-          <Outlet></Outlet>
+          {
+            // prettier-ignore
+            admin ? <>
+              <ActiveLink to='/dashboard/adminPanel'>
+                <div className='flex justify-between p-5'>
+                  <span>Admin Panel</span>
+                  <span>icon</span>
+                </div>
+              </ActiveLink>
+
+              <ActiveLink to='/dashboard/addProduct'>
+                <div className='flex justify-between p-5'>
+                  <span>Add Product</span>
+                  <span>icon</span>
+                </div>
+              </ActiveLink>
+
+              <ActiveLink to='/dashboard/manageProduct'>
+                <div className='flex justify-between p-5'>
+                  <span>Manage Product</span>
+                  <span>icon</span>
+                </div>
+              </ActiveLink>
+              <ActiveLink to='/dashboard/manageOrder'>
+                <div className='flex justify-between p-5'>
+                  <span>Manage Order</span>
+                  <span>icon</span>
+                </div></ActiveLink>
+            </> : <>
+
+              <ActiveLink to='/dashboard/addReview'>
+                <div className='flex justify-between p-5'>
+                  <span>Add review</span>
+                  <span>icon</span>
+                </div></ActiveLink>
+            </>
+          }
         </div>
 
-        <div className='drawer-side '>
-          <label htmlFor='dashboard-sidebar' className='drawer-overlay'></label>
-          {/* prettier-ignore */}
-          <ul className='menu p-4 overflow-y-auto w-80 text-base-content bg-accent border-r-2 border-secondary'>
-            <li><ActiveLink to='/dashboard'>My orders</ActiveLink></li>
-            {
-              admin ? <>
-                <li><ActiveLink to='/dashboard/adminPanel'>Admin Panel</ActiveLink></li>
-                <li><ActiveLink to='/dashboard/addProduct'>Add Product</ActiveLink></li>
-                <li><ActiveLink to='/dashboard/manageProduct'>Manage Product</ActiveLink></li>
-                <li><ActiveLink to='/dashboard/manageOrder'>Manage Order</ActiveLink></li>
-              </> :
-                <>
-                  <li>
-                    <ActiveLink to='/dashboard/addReview'>Add review</ActiveLink>
-                  </li>
-                </>
-            }
-         
-            <li><ActiveLink to='/dashboard/myProfile'>My profile</ActiveLink></li>
-          </ul>
-        </div>
       </div>
     </div>
   )

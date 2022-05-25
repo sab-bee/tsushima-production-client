@@ -16,15 +16,15 @@ const MyOrders = () => {
   )
   if (isLoading) return
   return (
-    <div>
-      <table>
+    <div className='overflow-x-auto'>
+      <table className='min-w-max'>
         <thead>
-          <tr className=''>
-            <th>name</th>
-            <th>quantity</th>
-            <th>price</th>
-            <th>status</th>
-            <th >action/transaction id</th>
+          <tr className='bg-slate-200'>
+            <th className='py-3 px-8 '>name</th>
+            <th className='py-3 px-8 '>quantity</th>
+            <th className='py-3 px-8 '>price</th>
+            <th className='py-3 px-8 '>status</th>
+            <th className='py-3 px-8 '>action/transaction id</th>
           </tr>
         </thead>
         <tbody>

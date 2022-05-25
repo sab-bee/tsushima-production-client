@@ -1,11 +1,26 @@
 import React, { useState } from 'react'
+import { useAuthState } from 'react-firebase-hooks/auth'
+import toast from 'react-hot-toast'
+import { axiosPrivate } from '../../api/axiosPrivate'
+import { auth } from '../../firebase/firebase.init'
 
 const AddReview = () => {
   const [star, setStar] = useState(5)
+  const [user] = useAuthState(auth)
+
 
   const handleRating = (e) => {
     e.preventDefault()
-    console.log(star, e.target.review.value)
+    const info = {
+      name: user.displayName,
+      rating: star,
+      message: e.target.review.value
+    }
+    axiosPrivate.post('/review', info).then(() => {
+      toast('thanks for review')
+      e.target.reset()
+    })
+
   }
 
   return (

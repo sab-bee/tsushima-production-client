@@ -33,7 +33,7 @@ const Payment = () => {
   //! console.log(order)
   return (
     <div className='grid justify-items-center'>
-      <div className='card w-[450px] bg-white shadow-md'>
+      <div className=' bg-white shadow-md'>
         <div className='card-body items-center text-center'>
           <h2 className='card-title text-secondary'>
             Please pay $ {order?.totalPrice}
@@ -41,7 +41,7 @@ const Payment = () => {
           <p>Once you complete payment you can't cancel order</p>
         </div>
         <div className='form-container'>
-          <form className=''>
+          <form>
             <div className='input-wraper'>
               <label htmlFor=''>Product Name</label>
               <input

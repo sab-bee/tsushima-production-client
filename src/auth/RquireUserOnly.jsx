@@ -1,15 +1,13 @@
-// require auth file
-import { signOut } from 'firebase/auth'
+
 import { useAuthState } from 'react-firebase-hooks/auth'
 import toast from 'react-hot-toast'
-import { Navigate, useLocation } from 'react-router-dom'
+import { Navigate } from 'react-router-dom'
 import { auth } from '../firebase/firebase.init'
 import { useAdmin } from '../hooks/useAdmin'
 
 export function RquireUserOnly({ children }) {
   const [user, loading] = useAuthState(auth)
   const { admin, isLoding } = useAdmin(user)
-  const location = useLocation()
 
   if (loading || isLoding) return
 
@@ -17,8 +15,7 @@ export function RquireUserOnly({ children }) {
     toast.error('admin can not access review', {
       id: 2
     })
-    signOut(auth)
-    return <Navigate to='/account' state={{ from: location }} replace />
+    return <Navigate to='/' />
   }
   return children
 }

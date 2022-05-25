@@ -41,7 +41,7 @@ export const useFirebase = () => {
     if (user?.displayName) {
       toast.success('logged in', {
         id: 'unique id',
-        position: 'top-right',
+        position: 'bottom-center',
       })
 
       navigate(from, { replace: true })

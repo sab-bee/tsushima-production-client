@@ -1,11 +1,12 @@
 import { signOut } from 'firebase/auth'
-import React, { useEffect, useState } from 'react'
+import React, { useState } from 'react'
 import { useAuthState } from 'react-firebase-hooks/auth'
-import { Link, useLocation, useNavigate } from 'react-router-dom'
+import { Link, useLocation } from 'react-router-dom'
 import { auth } from '../firebase/firebase.init'
 import ActiveLink from './ActiveLink'
 import { FiLogOut } from 'react-icons/fi'
 import { HiMenuAlt1 } from 'react-icons/hi'
+import { AiOutlineClose } from "react-icons/ai";
 
 const Navbar = () => {
   const [user] = useAuthState(auth)
@@ -38,17 +39,20 @@ const Navbar = () => {
       <div className='nav-container'>
         <div className='navbar'>
           <div>
-            <button onClick={() => setExpand(true)}>
+            <button onClick={() => setExpand(true)} className='block lg:hidden'>
               <HiMenuAlt1 className='text-xl' />
             </button>
+            <Link to='/' className='hidden lg:block'>
+              Logo
+            </Link>
           </div>
           <div className='menu-items'>
             {menus.map((menu, index) => {
               return (
                 !menu.hide && (
-                  <Link key={index} to={menu.url} className='menu-item'>
+                  <ActiveLink key={index} to={menu.url} className='menu-item' >
                     {menu.name}
-                  </Link>
+                  </ActiveLink>
                 )
               )
             })}
@@ -58,12 +62,12 @@ const Navbar = () => {
               {user?.displayName}
             </h2>
             {!user ? (
-              <Link
+              <ActiveLink
                 to='/account'
                 className='bg-secondary text-white font-semibold px-4 py-2 rounded-full'
               >
                 Login
-              </Link>
+              </ActiveLink>
             ) : (
               <button onClick={() => signOut(auth)} className='text-xl'>
                 <FiLogOut />
@@ -74,15 +78,14 @@ const Navbar = () => {
 
         {/* side menu */}
         <div
-          className={`${
-            expand ? 'left-0' : '-left-full md:-left-80'
-          } w-full md:w-80 h-screen bg-secondary text-white fixed top-0 transition-all ease-in-out duration-700`}
+          className={`${expand ? 'left-0' : '-left-full md:-left-80'
+            } w-full md:w-80 h-screen bg-secondary text-white fixed top-0 transition-all ease-in-out duration-700`}
         >
           <button
-            className='ml-auto block mr-5 mt-5'
+            className='ml-auto block mr-5 mt-5 text-xl font-bold'
             onClick={() => setExpand(false)}
           >
-            close
+            <AiOutlineClose />
           </button>
           <div className='flex flex-col gap-y-5'>
             {menus.map((menu, index) => {
@@ -93,6 +96,7 @@ const Navbar = () => {
                       key={index}
                       to={menu.url}
                       className='menu-item-mobile'
+                      onClick={() => setExpand(false)}
                     >
                       {menu.name}
                     </Link>
