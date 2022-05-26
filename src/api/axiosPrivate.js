@@ -3,8 +3,8 @@ import { signOut } from 'firebase/auth'
 import { auth } from '../firebase/firebase.init'
 
 export const axiosPrivate = axios.create({
-  baseURL: 'http://localhost:5000',
-  // baseURL: 'https://nameless-falls-29152.herokuapp.com',
+  // baseURL: 'http://localhost:5000',
+  baseURL: 'https://nameless-falls-29152.herokuapp.com',
 })
 
 axiosPrivate.interceptors.request.use(
