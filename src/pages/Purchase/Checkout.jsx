@@ -120,7 +120,7 @@ const Checkout = ({ part }) => {
           //* product quantity
         }
         <div className='input-wraper'>
-          <label htmlFor='productName'>Quantity - available</label>
+          <label htmlFor='productName'>Quantity </label>
           <input
             className='input-box'
             type='number'

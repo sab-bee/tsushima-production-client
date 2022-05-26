@@ -8,13 +8,13 @@ const Parts = () => {
 
   return (
     <div className='bg-white py-12'>
-      <h2 className='title-center'>parts</h2>
+      <h2 className='title-center my-8'>parts</h2>
       <div className='part-cols'>
         {parts?.map((part) => (
           <SinglePart key={part._id} part={part} />
         ))}
       </div>
-    </div>
+    </div >
   )
 }
 

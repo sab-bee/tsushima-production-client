@@ -14,6 +14,9 @@ module.exports = {
         error: '#E53935',
         accent: '#f6f9fc',
       },
+      fontFamily: {
+        yuji: " 'yuji mai' , serif",
+      },
     },
   },
   daisyui: {

@@ -15,9 +15,9 @@ const SinglePart = ({ part }) => {
   const navigate = useNavigate()
 
   return (
-    <div className='part'>
-      <div className='part-body'>
-        <img src={image} alt='' />
+    <div className='part '>
+      <div className='part-body '>
+        <img className='w-3/5 mx-auto' src={image} alt='' />
         <div className='part-info'>
           <h2 className='part-title'>{name}</h2>
           <p className='part-detail'>{description.slice(0, 200) + '...'}</p>

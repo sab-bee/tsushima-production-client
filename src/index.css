@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@400;500;600;700&family=Poppins:wght@300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Yuji+Mai&display=swap');
 
 @tailwind base;
 @tailwind components;
@@ -8,6 +8,7 @@ body {
   font-size: 14px;
   font-family: 'poppins', sans-serif;
   background-color: #f6f9fc;
+  color: #3F4452;
 }
 
 ::-moz-selection {
@@ -26,7 +27,7 @@ body {
     @apply container mx-auto;
   }
   .title {
-    @apply text-3xl font-bold;
+    @apply text-2xl font-bold;
   }
   .title-center {
     @apply title text-center;

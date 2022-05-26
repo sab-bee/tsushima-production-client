@@ -6,7 +6,7 @@ import feedback from '../../assets/icon/feedback.png'
 const BusinessSummary = () => {
   return (
     <div className='bg-white py-12'>
-      <h2 className='title-center'>Business Statistic</h2>
+      <h2 className='title-center my-8'>Business Statistic</h2>
       <div className='box'>
         <div className='grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3'>
           <div className='hover:shadow-lg p-8 hover:scale-105 transition-all duration-300 grid justify-items-center gap-y-4'>

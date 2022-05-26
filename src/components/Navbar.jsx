@@ -42,8 +42,8 @@ const Navbar = () => {
             <button onClick={() => setExpand(true)} className='block sm:hidden'>
               <HiMenuAlt1 className='text-xl' />
             </button>
-            <Link to='/' className='hidden sm:block'>
-              Logo
+            <Link to='/' className='hidden sm:block text-2xl font-yuji'>
+              対馬
             </Link>
           </div>
           <div className='menu-items'>

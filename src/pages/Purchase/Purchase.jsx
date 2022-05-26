@@ -20,7 +20,7 @@ const Purchase = () => {
   
   return (
     <div className='bg-white mb-[600px]'>
-      <div className='box grid grid-cols-1 lg:grid-cols-2'>
+      <div className='box grid grid-cols-1 lg:grid-cols-2 gap-y-8'>
         <Product part={part}></Product>
         <Checkout part={part}></Checkout>
       </div>

@@ -11,7 +11,7 @@ const Reviews = () => {
   if (isLoading) return
   return (
     <div className='py-12'>
-      <h2 className='title-center'>User Reviews</h2>
+      <h2 className='title-center my-8'>User Reviews</h2>
       <div className='box cursor-pointer'>
         <Swiper
           spaceBetween={100}

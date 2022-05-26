@@ -19,6 +19,8 @@ import AddProduct from './pages/DashBoard/AddProduct'
 import ManageProduct from './pages/DashBoard/ManageProduct'
 import ManageOrder from './pages/DashBoard/ManageOrder'
 import { RquireUserOnly } from './auth/RquireUserOnly'
+import Blog from './pages/Blog/Blog'
+import NotFound from './pages/NotFound/NotFound'
 
 // prettier-ignore
 function App() {
@@ -46,6 +48,8 @@ function App() {
           <Route path='manageProduct' element={<RequireAdmin><ManageProduct/></RequireAdmin>}></Route>
           <Route path='manageOrder' element={<RequireAdmin><ManageOrder/></RequireAdmin>}></Route>
         </Route>
+        <Route path='/blog' element={<Blog/>}></Route>
+        <Route path='*' element={<NotFound/>}></Route>
       </Routes>
     </div>
   )

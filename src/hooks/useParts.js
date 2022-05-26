@@ -7,7 +7,7 @@ export const useParts = (amount) => {
     isLoading,
     isError,
     refetch,
-  } = useQuery('parts', () =>
+  } = useQuery(['parts', amount], () =>
     axiosPublic(`/parts?amount=${amount}`).then((res) => res.data)
   )
 
