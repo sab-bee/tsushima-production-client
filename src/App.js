@@ -35,7 +35,7 @@ function App() {
           <Route index element={<Login />}></Route>
           <Route path='register' element={<Register />}></Route>
         </Route>
-        <Route path='/purchase/:_id' element={<ProtectedRoute><Purchase /></ProtectedRoute>}>
+        <Route path='/purchase/:_id' element={<RquireUserOnly><Purchase /></RquireUserOnly>}>
           <Route index element={<Product />}></Route>
         </Route>
         <Route path='/payment/:_id' element={<ProtectedRoute><Payment/></ProtectedRoute>}></Route>

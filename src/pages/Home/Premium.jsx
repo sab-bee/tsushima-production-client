@@ -69,7 +69,7 @@ const Premium = () => {
         </div>
         <form onSubmit={handleMemebership}>
           <div className='md:w-1/2 mx-auto mt-8 flex justify-center'>
-            <input type="email" className='bg-gray-100 p-3 w-4/5 focus:outline-indigo-200' name='email' />
+            <input type="email" className='bg-gray-100 p-3 w-4/5 focus:outline-indigo-200' name='email' placeholder='enter email address' />
             <button type='submit' className='cta cta-primary w-1/5'>submit</button>
           </div>
         </form>
