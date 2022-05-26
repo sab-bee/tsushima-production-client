@@ -37,7 +37,7 @@ const AddReview = () => {
           </div>
           <div className='mt-4'>
             <label htmlFor="review">Write your opinion on us.</label>
-            <textarea name="review" id="review" rows={3} className='input-box w-full'></textarea>
+            <textarea name="review" id="review" rows={5} className='input-box w-full'></textarea>
           </div>
         </div>
         <button className='cta cta-primary mt-6'>rate now</button>

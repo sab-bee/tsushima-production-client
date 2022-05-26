@@ -11,7 +11,7 @@ const BusinessSummary = () => {
         <div className='grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3'>
           <div className='hover:shadow-lg p-8 hover:scale-105 transition-all duration-300 grid justify-items-center gap-y-4'>
             <img src={customer} alt="" />
-            <h2 className='text-2xl font-semibold'>215+</h2>
+            <h2 className='text-2xl font-semibold'>215k+</h2>
             <p>Thousands of customers have our continuos support </p>
           </div>
           <div className='hover:shadow-lg p-8 hover:scale-105  transition-all duration-300 grid justify-items-center gap-y-4'>
@@ -21,7 +21,7 @@ const BusinessSummary = () => {
           </div>
           <div className='hover:shadow-lg p-8 hover:scale-105 transition-all duration-300 grid justify-items-center gap-y-4'>
             <img src={feedback} alt="" />
-            <h2 className='text-2xl font-semibold'>125k</h2>
+            <h2 className='text-2xl font-semibold'>125k+</h2>
             <p>Millions of users monthly gives us positive feedback</p>
           </div>
         </div>

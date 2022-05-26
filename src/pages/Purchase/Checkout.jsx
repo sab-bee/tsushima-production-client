@@ -111,7 +111,6 @@ const Checkout = ({ part }) => {
             className='input-box'
             value={productId}
             readOnly
-
             type='text'
             {...register('productId')}
           />
